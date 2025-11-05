@@ -24,7 +24,7 @@ We selected the Raspberry Pi AI Kit since it has a good balance of performance, 
 **Graduates:** open-source AI accelerators (Ztachip, VTA, Gemmini, VeriGOOD-ML, NVDLA) or any of the above 
 
 ## 3. Problem Definition
-Describe the AI or hardware design problem you aim to address and its relevance to AI hardware (e.g., efficiency, latency, scalability).
+The problem which we are addressing is that traditional input methods (like mouse and keyboard) can be limiting for real-time hands-free applications. Our project will address this by recognizing hand gestures and translating them into computer commands using edge-AI. This project will demonstrate how AI hardware can enable low-latency, scalable, and interactive embedded AI solutions.
 
 ## 4. Technical Objectives
 List 3–5 measurable objectives with quantitative targets when possible.
