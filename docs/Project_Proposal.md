@@ -27,7 +27,6 @@ We selected the Raspberry Pi AI Kit since it has a good balance of performance, 
 The problem which we are addressing is that traditional input methods (like mouse and keyboard) can be limiting for real-time hands-free applications. Our project will address this by recognizing hand gestures and translating them into computer commands using edge-AI. This project will demonstrate how AI hardware can enable low-latency, scalable, and interactive embedded AI solutions.
 
 ## 4. Technical Objectives
-List 3–5 measurable objectives with quantitative targets when possible.
 1. We should be able to identify the thumbs up, open palm, fist, and pointing gestures. 
 2. We should be able to identify the gestures more than 90% of the time.
 3. The Raspberry Pi should print each gesture after detecting it within 150 ms. 
@@ -35,22 +34,27 @@ List 3–5 measurable objectives with quantitative targets when possible.
 
 ## 5. Methodology
 Describe your planned approach: hardware setup, software tools, model design, performance metrics, and validation strategy.
+The hardware setup will include the Raspberry Pi 5 with the AI kit for accelerated inferences. A Raspberry Pi camera module will provide real time data while the Raspberry pi is connected to a display through micro HDMI. The setup will operate entirely on the device without cloud dependency. 
+  
+The project will be developed in python using libraries like OpenCV for video processing and TensorFlow for model deployment. Additional tools include Matplotlib for visualizing results. A lightweight convolutional neural network (CNN) trained on a hand gesture dataset will serve as the recognition model which will classify gestures like thumbs up, open hand, and closed fist.
+
+The performance will be evaluated using the metrics of inference latency and classification accuracy. The validation strategy will involve testing the system under different environmental conditions like varying lighting (light, dim, and dark) and varying users to assess its robustness. Each gesture will be performed multiple times and the performance results will be evaluated based off accuracy percentage and inference latency. 
 
 ## 6. Expected Deliverables
-List tangible outputs: working demo, GitHub repository, documentation, presentation slides, and final report.
+- Working demo of the system correctly identifying  hand gestures
+- GitHub repository with comprehensive readme
+- Documentation on the system and how to deploy it
+- Presentation Slides
+- Final Report
 
 ## 7. Team Responsibilities
-List each member’s main role.
 
 | Name | Role | Responsibilities |
 |------|------|------------------|
-| [Student A] | Team Lead | Coordination, documentation |
-| [Student B] | Hardware | Setup, integration |
-| [Student C] | Software | Model training, inference |
-| [Student D] | Evaluation | Testing, benchmarking |
+| Miles Mayhew | Hardware and System integration | Embedded hardware setup, documentation |
+| Zackary Dickens | Software | Model optimization |
 
 ## 8. Timeline and Milestones
-Provide expected milestones:
 
 | Week | Milestone | Deliverable |
 |------|------------|-------------|
@@ -60,7 +64,7 @@ Provide expected milestones:
 | Dec. 18 | Final presentation | Report, demo, GitHub archive |
 
 ## 9. Resources Required
-List special hardware, datasets, or compute access needed.
+Will need a camera compatible with the Raspberry Pi 5.
 
 ## 10. References
 Include relevant papers, repositories, and documentation.
