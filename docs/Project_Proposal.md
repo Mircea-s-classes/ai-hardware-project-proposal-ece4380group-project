@@ -28,6 +28,10 @@ The problem which we are addressing is that traditional input methods (like mous
 
 ## 4. Technical Objectives
 List 3–5 measurable objectives with quantitative targets when possible.
+1. We should be able to identify the thumbs up, open palm, fist, and pointing gestures. 
+2. We should be able to identify the gestures more than 90% of the time.
+3. The Raspberry Pi should print each gesture after detecting it within 150 ms. 
+4. Model should be optimized to run entirely on-device.
 
 ## 5. Methodology
 Describe your planned approach: hardware setup, software tools, model design, performance metrics, and validation strategy.
