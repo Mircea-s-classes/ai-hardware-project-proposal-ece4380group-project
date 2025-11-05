@@ -11,14 +11,14 @@
 # AI Hardware Project Proposal Template
 
 ## 1. Project Title
-Name of the Team
+ECE4380Group project
 
-List of students in the team
+Miles Mayhew, Zackary Dickens
 
-Provide a clear and concise title for your project. 
+Gesture Recognition System
 
 ## 2. Platform Selection
-Select one platform category and justify your choice.
+We selected the Raspberry Pi AI Kit since it has a good balance of performance, flexibility, and usability. This platform can perform low-latency inference on visual data and the Raspberry Pi supports a wide range of cameras which can be used to collect data.
 
 **Undergraduates:** Edge-AI, TinyML, or Neuromorphic platforms  
 **Graduates:** open-source AI accelerators (Ztachip, VTA, Gemmini, VeriGOOD-ML, NVDLA) or any of the above 
