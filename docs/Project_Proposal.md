@@ -33,12 +33,11 @@ The problem which we are addressing is that traditional input methods (like mous
 4. Model should be optimized to run entirely on-device.
 
 ## 5. Methodology
-Describe your planned approach: hardware setup, software tools, model design, performance metrics, and validation strategy.
-The hardware setup will include the Raspberry Pi 5 with the AI kit for accelerated inferences. A Raspberry Pi camera module will provide real time data while the Raspberry pi is connected to a display through micro HDMI. The setup will operate entirely on the device without cloud dependency. 
+The hardware setup will include the Raspberry Pi 5 with the AI kit featuring the Hailo-8L NPU for accelerated AI inference. A Raspberry Pi camera module will provide real time data while the Raspberry pi is connected to a display through micro HDMI for visual output. The setup will operate entirely on the device without cloud dependency. 
   
-The project will be developed in python using libraries like OpenCV for video processing and TensorFlow for model deployment. Additional tools include Matplotlib for visualizing results. A lightweight convolutional neural network (CNN) trained on a hand gesture dataset will serve as the recognition model which will classify gestures like thumbs up, open hand, and closed fist.
+The project will be developed in python using libraries like OpenCV for video processing and TensorFlow Lite for model deployment. Additional tools include Matplotlib for visualizing results. A lightweight convolutional neural network (CNN) trained on a hand gesture dataset will serve as the recognition model which will classify gestures like thumbs up, open hand, and closed fist. The model will be compiled for hardware acceleration on the AI Kit.
 
-The performance will be evaluated using the metrics of inference latency and classification accuracy. The validation strategy will involve testing the system under different environmental conditions like varying lighting (light, dim, and dark) and varying users to assess its robustness. Each gesture will be performed multiple times and the performance results will be evaluated based off accuracy percentage and inference latency. 
+The performance will be evaluated using the metrics of inference latency (time to output result from an input image) and classification accuracy. The validation strategy will involve testing the system under different environmental conditions like varying lighting (light, dim, and dark) and varying users to assess its robustness. Each gesture will be performed multiple times and the performance results will be evaluated based off accuracy percentage and average inference latency. 
 
 ## 6. Expected Deliverables
 - Working demo of the system correctly identifying  hand gestures
