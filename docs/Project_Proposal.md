@@ -63,7 +63,7 @@ The performance will be evaluated using the metrics of inference latency (time t
 | Dec. 18 | Final presentation | Report, demo, GitHub archive |
 
 ## 9. Resources Required
-Will need a camera compatible with the Raspberry Pi 5.
+Will need a  Raspberry Pi 5, Hailo-8L NPU, and a camera compatible with the Raspberry Pi 5.
 
 ## 10. References
 Include relevant papers, repositories, and documentation.
