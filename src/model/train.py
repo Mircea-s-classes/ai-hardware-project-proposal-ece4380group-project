@@ -4,14 +4,14 @@ IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 
 train_ds = tf.keras.utils.image_dataset_from_directory(
-    "hagrid/train",
+    "data/Train",
     image_size=IMG_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="categorical"
 )
 
 val_ds = tf.keras.utils.image_dataset_from_directory(
-    "hagrid/val",
+    "data/Val",
     image_size=IMG_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="categorical"
