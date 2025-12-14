@@ -56,7 +56,7 @@ history = model.fit(
 )
 
 test_ds = tf.keras.utils.image_dataset_from_directory(
-    "hagrid/test",
+    "data/Test",
     image_size=IMG_SIZE,
     batch_size=BATCH_SIZE,
     label_mode="categorical"
