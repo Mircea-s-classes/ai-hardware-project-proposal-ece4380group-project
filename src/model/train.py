@@ -17,6 +17,19 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
     label_mode="categorical"
 )
 
+test_ds = tf.keras.utils.image_dataset_from_directory(
+    "data/Test",
+    image_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    label_mode="categorical"
+)
+
+AUTOTUNE = tf.data.AUTOTUNE
+
+train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds   = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+test_ds  = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
+
 data_augmentation = tf.keras.Sequential([
     tf.keras.layers.RandomFlip("horizontal"),
     tf.keras.layers.RandomRotation(0.1),
@@ -53,13 +66,6 @@ history = model.fit(
     train_ds,
     validation_data=val_ds,
     epochs=10
-)
-
-test_ds = tf.keras.utils.image_dataset_from_directory(
-    "data/Test",
-    image_size=IMG_SIZE,
-    batch_size=BATCH_SIZE,
-    label_mode="categorical"
 )
 
 test_loss, test_acc = model.evaluate(test_ds)
