@@ -3,6 +3,8 @@ import tensorflow as tf
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 
+AUTOTUNE = tf.data.AUTOTUNE
+
 train_ds = tf.keras.utils.image_dataset_from_directory(
     "data/Train",
     image_size=IMG_SIZE,
@@ -24,17 +26,30 @@ test_ds = tf.keras.utils.image_dataset_from_directory(
     label_mode="categorical"
 )
 
-AUTOTUNE = tf.data.AUTOTUNE
-
-train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
-val_ds   = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
-test_ds  = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
-
 data_augmentation = tf.keras.Sequential([
     tf.keras.layers.RandomFlip("horizontal"),
     tf.keras.layers.RandomRotation(0.1),
     tf.keras.layers.RandomZoom(0.1),
 ])
+
+class_names = train_ds.class_names
+num_classes = len(class_names)
+print("Classes:", class_names)
+
+options = tf.data.Options()
+# You can keep this line for distributed training
+options.experimental_distribute.auto_shard_policy = tf.data.experimental.AutoShardPolicy.AUTO
+
+# Apply options and the new ignore_errors() method directly to the datasets
+train_ds = train_ds.with_options(options).ignore_errors()
+val_ds = val_ds.with_options(options).ignore_errors()
+test_ds = test_ds.with_options(options).ignore_errors()
+
+# 3️⃣ Now cache & prefetch datasets
+AUTOTUNE = tf.data.AUTOTUNE
+train_ds = train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds   = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+test_ds  = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
 
 normalization = tf.keras.layers.Rescaling(1./255)
 
@@ -45,7 +60,6 @@ base_model = tf.keras.applications.MobileNetV2(
 )
 
 base_model.trainable = False  # transfer learning
-num_classes = len(train_ds.class_names)
 
 model = tf.keras.Sequential([
     data_augmentation,
