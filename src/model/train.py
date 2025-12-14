@@ -62,10 +62,17 @@ model.compile(
     metrics=["accuracy"]
 )
 
+early_stop = tf.keras.callbacks.EarlyStopping(
+    monitor="val_loss",
+    patience=3,
+    restore_best_weights=True
+)
+
 history = model.fit(
     train_ds,
     validation_data=val_ds,
-    epochs=10
+    epochs=10,
+    callbacks=[early_stop]
 )
 
 test_loss, test_acc = model.evaluate(test_ds)
