@@ -107,7 +107,7 @@ model.compile(
 )
 
 # Set a much longer epoch count for fine-tuning
-fine_tune_epochs = 20
+fine_tune_epochs = 5
 total_epochs = history.epoch[-1] + fine_tune_epochs
 
 print("\n--- Starting Stage 2: Fine-Tuning (Unfrozen Base with Low LR) ---")
