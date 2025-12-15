@@ -1,66 +1,81 @@
-import numpy as np
 import cv2
+import numpy as np
 import time
-from picamera2 import Picamera2
-import tflite_runtime.interpreter as tflite
+from tflite_runtime.interpreter import Interpreter
 
-# -----------------------------
-# CONFIG
-# -----------------------------
-MODEL_PATH = "hand_gesture.tflite"
-LABELS_PATH = "labels.txt"
-IMG_SIZE = 224
-CONFIDENCE_THRESHOLD = 0.6
+# ==============================
+# Configuration
+# ==============================
+MODEL_PATH = "gesture_model.tflite"
 
-# -----------------------------
-# LOAD LABELS
-# -----------------------------
-with open(LABELS_PATH, "r") as f:
-    labels = [line.strip() for line in f.readlines()]
+CLASSES = [
+    "fist",
+    "like",
+    "no_gesture",
+    "palm",
+    "point"
+]
 
-# -----------------------------
-# LOAD TFLITE MODEL
-# -----------------------------
-interpreter = tflite.Interpreter(model_path=MODEL_PATH)
+CAMERA_INDEX = 0
+
+# Load model
+interpreter = Interpreter(model_path=MODEL_PATH)
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
-# -----------------------------
-# CAMERA SETUP
-# -----------------------------
-picam2 = Picamera2()
-picam2.configure(
-    picam2.create_preview_configuration(
-        main={"format": "RGB888", "size": (640, 480)}
-    )
-)
-picam2.start()
-time.sleep(2)
+input_height = input_details[0]["shape"][1]
+input_width = input_details[0]["shape"][2]
 
-print("📷 Camera started. Looking for hand gestures...")
+# ==============================
+# Open USB Camera
+# ==============================
+cap = cv2.VideoCapture(CAMERA_INDEX)
 
-# -----------------------------
-# MAIN LOOP
-# -----------------------------
+if not cap.isOpened():
+    raise RuntimeError("Could not open USB camera")
+
 while True:
-    frame = picam2.capture_array()
+    ret, frame = cap.read()
+    if not ret:
+        break
 
-    # Resize and normalize
-    img = cv2.resize(frame, (IMG_SIZE, IMG_SIZE))
-    img = img.astype(np.float32) / 255.0
+    # Flip image to look better
+    frame = cv2.flip(frame, 1)
+
+    # Preprocess
+    img = cv2.resize(frame, (input_width, input_height))
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = img.astype(np.float32)
     img = np.expand_dims(img, axis=0)
 
     # Run inference
     interpreter.set_tensor(input_details[0]["index"], img)
     interpreter.invoke()
+    output = interpreter.get_tensor(output_details[0]["index"])[0]
 
-    predictions = interpreter.get_tensor(output_details[0]["index"])[0]
-    class_id = np.argmax(predictions)
-    confidence = predictions[class_id]
+    class_id = np.argmax(output)
+    confidence = output[class_id]
+    label = CLASSES[class_id]
 
-    if confidence > CONFIDENCE_THRESHOLD:
-        print(f"Gesture: {labels[class_id]}  |  Confidence: {confidence:.2f}")
+    # Display results
+    text = f"{label}: {confidence:.2f}"
+    cv2.putText(frame, text, (20, 40),
+                cv2.FONT_HERSHEY_SIMPLEX, 1,
+                (0, 255, 0), 2)
 
-    time.sleep(0.2)  # limit console spam
+    cv2.imshow("Hand Gesture Recognition", frame)
+
+    # Exit by pressing q
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# ==============================
+# Cleanup
+# ==============================
+cap.release()
+cv2.destroyAllWindows()
+
+
+
