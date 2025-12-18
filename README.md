@@ -15,8 +15,10 @@ Each team will **clone this template** to start their own project repository.
 - `data/` – datasets or pointers to data used
 
 ## 🧑‍🤝‍🧑 Team Setup
-Each team should have **2–4 members (3 preferred)**.  
-List all team members in `docs/Project_Proposal.md`.
+| Name | Role | Responsibilities |
+|------|------|------------------|
+| Miles Mayhew | Hardware and System integration | Embedded hardware setup, documentation |
+| Zackary Dickens | Software | Model optimization |
 
 ## 📋 Required Deliverables
 1. **Project Proposal** — due Nov. 5, 2025, 11:59 PM  
