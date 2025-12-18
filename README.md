@@ -44,29 +44,24 @@ The results for the good_hand_gesture.tflite model are shown below. After deploy
 
 
 Classification Report:
-              
-              precision    recall  f1-score   support
-        
-        fist       0.96      0.90      0.93        50
-        
-        like       0.98      0.96      0.97        50
-  
-  no_gesture       0.91      1.00      0.95        50
-  
-        palm       1.00      1.00      1.00        50
-  
-       point       1.00      0.98      0.99        50
+| Class        | Precision | Recall | F1-Score | Support |
+|-------------|-----------|--------|----------|---------|
+| Fist        | 0.96      | 0.90   | 0.93     | 50      |
+| Like        | 0.98      | 0.96   | 0.97     | 50      |
+| No Gesture  | 0.91      | 1.00   | 0.95     | 50      |
+| Palm        | 1.00      | 1.00   | 1.00     | 50      |
+| Point       | 1.00      | 0.98   | 0.99     | 50      |
+| **Accuracy**|           |        | **0.97** | **250** |
+| **Macro Avg** | 0.97    | 0.97   | 0.97     | 250     |
+| **Weighted Avg** | 0.97 | 0.97   | 0.97     | 250     |
 
-   accuracy                            0.97       250
-   macro avg       0.97      0.97      0.97       250
-   weighted avg    0.97      0.97      0.97       250
-
-Confusion Matrix:
-[[45  0  5  0  0]
- [ 2 48  0  0  0]
- [ 0  0 50  0  0]
- [ 0  0  0 50  0]
- [ 0  1  0  0 49]]
+| Actual \\ Predicted | Fist | Like | No Gesture | Palm | Point |
+|--------------------|------|------|------------|------|-------|
+| **Fist**           | 45   | 0    | 5          | 0    | 0     |
+| **Like**           | 2    | 48   | 0          | 0    | 0     |
+| **No Gesture**     | 0    | 0    | 50         | 0    | 0     |
+| **Palm**           | 0    | 0    | 0          | 50   | 0     |
+| **Point**          | 0    | 1    | 0          | 0    | 49    |
 
 ## 📜 License
 This project is released under the MIT License.
