@@ -39,5 +39,27 @@ Each team will **clone this template** to start their own project repository.
 3. After train.py has completed running a classification report with information about how accurate it is will be printed to the terminal
 4. This model can then be deployed using the above steps
 
+## Results
+The results for the good_hand_gesture.tflite model are shown below.
+Classification Report:
+              precision    recall  f1-score   support
+
+        fist       0.96      0.90      0.93        50
+        like       0.98      0.96      0.97        50
+  no_gesture       0.91      1.00      0.95        50
+        palm       1.00      1.00      1.00        50
+       point       1.00      0.98      0.99        50
+
+   accuracy                            0.97       250
+   macro avg       0.97      0.97      0.97       250
+   weighted avg    0.97      0.97      0.97       250
+
+Confusion Matrix:
+[[45  0  5  0  0]
+ [ 2 48  0  0  0]
+ [ 0  0 50  0  0]
+ [ 0  0  0 50  0]
+ [ 0  1  0  0 49]]
+
 ## 📜 License
 This project is released under the MIT License.
