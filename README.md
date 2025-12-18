@@ -8,9 +8,9 @@ This repository provides a structured template for your team project in the AI H
 Each team will **clone this template** to start their own project repository.
 
 ## 🗂 Folder Structure
+- `ProjectDemo/` – video demonstration of project
 - `docs/` – project proposal and documentation  
 - `presentations/` – midterm and final presentation slides  
-- `ProjectDemo/` – video demonstration of project
 - `src/` – source code for software, hardware, and experiments  
 - `data/` – datasets or pointers to data used
 
