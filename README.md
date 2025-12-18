@@ -20,10 +20,10 @@ Each team will **clone this template** to start their own project repository.
 | Miles Mayhew | Hardware and System integration | Embedded hardware setup, documentation |
 | Zackary Dickens | Software | Model optimization |
 
-## 📋 Required Deliverables
-1. **Project Proposal** — due Nov. 5, 2025, 11:59 PM  
-2. **Midterm Presentation** — Nov. 19,2025, 11:59 PM  
-3. **Final Presentation and Report** — Dec. 17, 11:59 PM
+## 📋 Required Hardware
+1. Raspberry Pi 5 and associated power cable
+2. USB camera
+3. Hailo AI Module
 
 ## 🚀 How to
 1. Begin by cloning this repository onto your own personal laptop/device
