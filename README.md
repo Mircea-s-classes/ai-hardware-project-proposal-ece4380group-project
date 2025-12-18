@@ -40,7 +40,7 @@ Each team will **clone this template** to start their own project repository.
 4. This model can then be deployed using the above steps
 
 ## Results
-The results for the good_hand_gesture.tflite model are shown below.
+The results for the good_hand_gesture.tflite model are shown below. After deploying to a Raspberry Pi it was found to be able to accuratly identify hand gestures.
 Classification Report:
               precision    recall  f1-score   support
 
