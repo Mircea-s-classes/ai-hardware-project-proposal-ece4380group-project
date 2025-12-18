@@ -4,8 +4,7 @@ ECE 4332 / ECE 6332 — AI Hardware
 Fall 2025
 
 ## 🧭 Overview
-This repository provides a structured template for your team project in the AI Hardware class.  
-Each team will **clone this template** to start their own project repository.
+The goal of this project is to be able to accurately identify thumbs up, open palm, fist, and pointing hand gestures through the use of an edge-AI platform (Raspberry Pi). This will allow for a real-time hands-free input method which can be less limiting compared to traditional input methods (like mouse and keyboard). This project will demonstrate how AI hardware can enable low-latency, scalable, and interactive embedded AI solutions.
 
 ## 🗂 Folder Structure
 - `ProjectDemo/` – video demonstration of project
