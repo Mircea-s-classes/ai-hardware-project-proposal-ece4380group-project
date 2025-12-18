@@ -10,7 +10,7 @@ Each team will **clone this template** to start their own project repository.
 ## 🗂 Folder Structure
 - `docs/` – project proposal and documentation  
 - `presentations/` – midterm and final presentation slides  
-- `report/` – final written report (IEEE LaTeX and DOCX versions included)  
+- `ProjectDemo/` – video demonstration of project
 - `src/` – source code for software, hardware, and experiments  
 - `data/` – datasets or pointers to data used
 
