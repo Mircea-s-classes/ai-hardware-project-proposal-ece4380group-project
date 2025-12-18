@@ -41,9 +41,10 @@ Each team will **clone this template** to start their own project repository.
 
 ## Results
 The results for the good_hand_gesture.tflite model are shown below. After deploying to a Raspberry Pi it was found to be able to accuratly identify hand gestures.
+
+
 Classification Report:
               precision    recall  f1-score   support
-
         fist       0.96      0.90      0.93        50
         like       0.98      0.96      0.97        50
   no_gesture       0.91      1.00      0.95        50
