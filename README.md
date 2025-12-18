@@ -23,14 +23,11 @@ List all team members in `docs/Project_Proposal.md`.
 2. **Midterm Presentation** — Nov. 19,2025, 11:59 PM  
 3. **Final Presentation and Report** — Dec. 17, 11:59 PM
 
-## 🚀 How to Use This Template
-1. Click **“Use this template”** on GitHub.  
-2. Name your repo `ai-hardware-teamXX` (replace XX with your team name or number).  
-3. Clone it locally:
-   ```bash
-   git clone https://github.com/YOUR-ORG/ai-hardware-teamXX.git
-   ```
-4. Add your work in the appropriate folders.
+## 🚀 How to
+1. Begin by cloning this repository onto your own personal laptop/device
+2. Transfer the good_hand_gesture.tflite or other tflite model of your choosing and piScript.py in the hardware folder to the Raspberry Pi (through scp or thumb stick)
+3. In order to run this project python version 3.11.8 must be used. To do this pyenv was used (found here https://github.com/pyenv/pyenv) follow setup steps available on the git to set up on the Raspberry Pi
+4. 
 
 ## 🧾 Submissions
 - Commit and push all deliverables before each deadline.
