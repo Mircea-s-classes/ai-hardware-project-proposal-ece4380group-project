@@ -44,11 +44,17 @@ The results for the good_hand_gesture.tflite model are shown below. After deploy
 
 
 Classification Report:
+              
               precision    recall  f1-score   support
+        
         fist       0.96      0.90      0.93        50
+        
         like       0.98      0.96      0.97        50
+  
   no_gesture       0.91      1.00      0.95        50
+  
         palm       1.00      1.00      1.00        50
+  
        point       1.00      0.98      0.99        50
 
    accuracy                            0.97       250
