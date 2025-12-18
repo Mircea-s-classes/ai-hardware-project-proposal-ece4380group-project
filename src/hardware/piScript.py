@@ -6,7 +6,7 @@ from tflite_runtime.interpreter import Interpreter
 # ==============================
 # Configuration
 # ==============================
-MODEL_PATH = "gesture_model.tflite"
+MODEL_PATH = "good_gesture_model.tflite"
 
 CLASSES = [
     "fist",

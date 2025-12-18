@@ -25,11 +25,12 @@ Each team will **clone this template** to start their own project repository.
 2. USB camera
 3. Hailo AI Module
 
-## 🚀 How to
+## 🚀 How to Deploy on Hardware
 1. Begin by cloning this repository onto your own personal laptop/device
 2. Transfer the good_hand_gesture.tflite or other tflite model of your choosing and piScript.py in the hardware folder to the Raspberry Pi (through scp or thumb stick)
 3. In order to run this project python version 3.11.8 must be used. To do this pyenv was used (found here https://github.com/pyenv/pyenv) follow setup steps available on the git to set up on the Raspberry Pi
-4. 
+4. After running pyenv local 3.11.8 in whatever folder you wish to run this project from set up a virtual envirionment and install dependencies using pip install -r requirements.txt
+5. Ensure USB camera/Hailo Hat are connected correctly and that the MODEL_PATH variable in piScript.py is correctly pointing towards your chosen model then run with python piScript.py
 
 ## 🧾 Submissions
 - Commit and push all deliverables before each deadline.
